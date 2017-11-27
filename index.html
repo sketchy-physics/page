@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<link rel="icon" href="icon.png">
+		<title>SketchyPhysics</title>
+		<style type="text/css">
+
+			body {
+				font-family: Verdana;
+				overflow-y: scroll;
+				color: #333;
+				font-size: 14px;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			#Page {
+				position: relative;
+				margin: auto;
+				width: 1000px;
+				opacity: 0;
+				visibility: hidden;
+				transition: 1s;
+			}
+
+			#Page.loaded {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.moreInfoButton span,
+			.moreInfoButton a {
+				color: #E30;
+				text-decoration: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				-moz-user-select: none;
+			}
+
+			.moreInfoButton span:hover {
+				color: #F85;
+				cursor: pointer;
+			}
+
+			/*----------------------------------- Descriptions -------------------------------- */
+			.list_blocks {
+				margin-left: 20px;
+				border: 1px solid #999;
+				padding: 20px;
+				background-color: #FFF8F8;
+			}
+
+			.comment_in_list_blocks {
+				margin-left: 40px;
+				color: #888;
+				font-style: italic;
+				padding-bottom: 10px;
+			}
+
+			.margin_in_list_blocks {
+				margin-top: 40px;
+			}
+
+			.example_script {
+				position: absolute;
+				margin-left: 70px;
+				margin-top: -40px;
+				width: 760px;
+				height: 12px;
+				overflow: hidden;
+				font-family: Courier New;
+				color: #000;
+				border: 1px solid #555;
+				background-color: #E5E9FF;
+				padding: 10px;
+			}
+
+			.example_script:hover {
+				height: auto;
+				box-shadow: 0 0 20px #888;
+				z-index: 100;
+			}
+
+			.versionTitles {
+				color: #459;
+			}
+
+			.keywords {
+				color: #F72;
+				font-style: normal;
+			}
+
+			#downloadsBlock {
+				position: absolute;
+				right: 0;
+			}
+
+			#downloads_panel {
+				height: 0;
+				overflow: hidden;
+			}
+
+			#downloads_panel_list {
+				margin-right: 30px;
+				margin-top: 30px;
+				padding: 10px;
+				background-color: #EEE;
+				border: 1px solid #777;
+			}
+
+			#downloads_panel_list a div {
+				display: inline-block;
+				color: #FFF;
+				width: 40px;
+				font-weight: bold;
+				background-color: #BBB;
+				border: 1px solid #777;
+				margin-top: 5px;
+				padding: 0 7px;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				-moz-user-select: none;
+			}
+
+			#downloads_panel_list a div:hover {
+				cursor: pointer;
+				border-color: #000;
+				background-color: #E30;
+			}
+
+			#downloads_panel_list a div:active {
+				background-color: #920;
+			}
+
+			#downloadsBlock:hover #downloads_panel {
+				height: auto;
+			}
+
+			/* --------------------------------------------- Images ---------------------------------------------- */
+
+			img {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				margin-left: 400px;
+				border: 2px solid #555;
+			}
+
+			img:hover {
+				width: 1000px;
+				height: auto;
+				margin-left: -40px;
+				margin-top: -200px;
+				border-width: 4px;
+				z-index: 100;
+			}
+
+		</style>
+	</head>
+	<body onload="document.getElementById('Page').className = 'loaded';">
+		<div style="position: absolute; width: 100%;margin:-8px; height:65px; background-color:#334; box-shadow:0 0 10px #000;"></div>
+		<div id="Page">
+			<div id="Lap" style="position: absolute; width: 100%;">
+				<span class="versionTitles" style="font-size: 20px;color:#EEE;font-weight:bold">
+					SketchyPhysics last version:<br>
+					3.7.4 November 26, 2017
+				</span><i style="color: #F30">"... for SketchUp 32-bit only!"</i><br>
+				<br>
+				<div id="Descr" style="padding-bottom: 100px">
+					<div id="downloadsBlock">
+						<span style="background-color:#F30; color: #FFF; padding: 5px; border: 1px solid #000; position: absolute; right: 0; font-weight: bold;">Downloads</span>
+						<div id="downloads_panel">
+							<div id="downloads_panel_list">
+								<span>SketchyPhysics 3.7.4 (12MB)</span><br>
+								<a href="https://drive.google.com/uc?export=download&id=1Zuwj_27qbG9HwXeGv-FkYWdq0MXU8yMO"><div>.rbz</div></a> SketchUp Extension<br>
+								<a href="https://drive.google.com/uc?export=download&id=1Wf92N8LOcWczo-RM7X7nweakcp8gxPzH"><div>.zip</div></a> ZIP Archive<br>
+								<a href="https://drive.google.com/uc?export=download&id=1OA-iWIrHJLlg9XtzNfTIlc2fMM9wkgxo"><div>.exe</div></a> Windows Installer<br>
+								<br>
+								All SketchUp version --><br>
+								<a href="http://www.sketchup.com/download/all" target="_blank"><div style="width: auto">SketchUp Product Downloads</div></a><br>
+								<br>
+								Original SketchyPhysics by Chris Phillips<br>
+								<a href="https://www.dropbox.com/s/z2mnbcvx6p3sq9y/SketchUp8%2BSP3.2.zip?dl=1"><div style="width: auto">SketchUp 8 + SP 3.2</div></a> (.zip, Windows, 38MB)<br>
+								<br>
+								Show versions before 3.6.0 by Anton Synytsia --><br>
+								<a href="http://sketchucation.com/forums/viewtopic.php?f=61&t=58936" target="_blank"><div style="width: auto">Sketchucation Topic</div></a>
+							</div>
+						</div>
+					</div>
+
+
+
+					<span class="versionTitles">Change Log:</span><br>
+					<br>
+					<div class="list_blocks">
+						> Script area is enabled by default.<br>
+						> Script editor theme is dark by default.<br>
+						> Fixed more bugs.<br>
+						> This is last update!
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.7.3   ================================== -->
+
+					<span class="versionTitles">3.7.3 July 6, 2016</span><br>
+					<br>
+					<div class="list_blocks">
+						> Fixed Mac OS X crash (Thanks the feedback from Anton Synytsia).
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.7.2   ================================== -->
+
+					<span class="versionTitles">3.7.2 > June 25, 2016</span><br>
+					<br>
+					<div class="list_blocks">
+						> Integrated new Export animation by Anton Synytsia.<br>
+						> New Windows installer.<br>
+						> Fixed some bugs.
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.7.1   ================================== -->
+
+					<span class="versionTitles">3.7.1 > December 23, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> Fixed the theme selector in script editor panel. From now just 2 theme is available.(Light, Dark)<br>
+						> Added <span class="keywords">raytest(point, vector)</span>. This create a ray.
+						<div class="comment_in_list_blocks">
+							point: Geom::Point3d or numeric array<br>
+							vector: Geom::Vector3d or numeric array<br>
+							Return: Sketchup.active_model.raytest(point, vector) OR false if nil
+						</div>
+						> Added <span class="keywords">findBodyByRaytest(ray)</span>. This find a body on collision of raytest.
+						<div class="comment_in_list_blocks">
+							ray: raytest<br>
+							Return: body [SP3xBodyContext]
+						</div>
+						> Added <span class="keywords">findPointByRaytest(ray)</span>. This find a point on collision of raytest.
+						<div class="comment_in_list_blocks">
+							ray: raytest<br>
+							Return: Geom::Point3d
+						</div>
+						> Added <span class="keywords">addImpulse(body, point, vector, strength = 1)</span>. Add impulse to body on collision of the raytest. Point and vector must be the same as the raytest values.
+						<div class="comment_in_list_blocks">
+							body: [SP3xBodyContext]<br>
+							point: raytest point<br>
+							vector: raytest vector<br>
+							strength: numeric
+						</div>
+						<div style="margin-left: 40px">
+							<div class="moreInfoButton">
+								<a href="https://www.youtube.com/watch?v=k4GuIQoABOQ" target="_blank"><span>Video on YouTube</span></a>
+							</div>
+						</div>
+						<br>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@box = findBody("box")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;point = @box.getOrigin<br>
+							&nbsp;&nbsp;# ERASE THE BOX FACE ON GREEN AXIS !<br>
+							&nbsp;&nbsp;vector = @box.getAxes.y<br>
+							<br>
+							&nbsp;&nbsp;ray = raytest(point, vector)<br>
+							<br>
+							&nbsp;&nbsp;if key('v') == 1<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;target_body = findBodyByRaytest(ray)<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;addImpulse(target_body, point, vector)<br>
+							&nbsp;&nbsp;end<br>
+							}
+						</div></div>
+						> Changed the <span class="keywords">'visibleAll'</span> command to <span class="keywords">'visibility'</span>
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.7.0   ================================== -->
+
+					<span class="versionTitles">3.7.0 > December 12, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Added Entity Info table into Inspector.</b> This get the all entity ID and index.<br>
+						<img src="http://5mp.eu/fajlok2/sp3/3.7_www.5mp.eu_.png" alt="" /><br>
+						<div style="margin-left: 40px">
+							<div class="moreInfoButton">
+								<a href="https://www.youtube.com/watch?v=1JmUM0k3xG8" target="_blank"><span>Video on YouTube</span></a>
+							</div>
+						</div>
+						<br>
+						> Fixed the javascript fault in SUp 13. (If opened the Settings UI and double-click onto group).<br>
+						> Added <span class="keywords">findLayer(value)</span> alias to <span class="keywords">getLayer(value)</span>  v. 3.6.0
+						<div class="comment_in_list_blocks">
+							value: name- or index of layer<br>
+							Return: layer
+						</div>
+						> Added <span class="keywords">findEntityByIndex(index)</span> alias to <span class="keywords">getEntity(index)</span> v. 3.6.0<br>
+						<div class="comment_in_list_blocks">
+							Return: entity
+						</div>
+						> Added <span class="keywords">findEntityById(id)</span><br>
+						<div class="comment_in_list_blocks">
+							id: ID of entity OR ID of internal entity in the group/component<br>
+							Return: entity
+						</div>
+						> Added <span class="keywords">findGroupByName(name)</span> Find just group/component by name.<br>
+						<div class="comment_in_list_blocks">
+							name: name of group/component OR name of internal group/component in the group/component<br>
+							Return: entity
+						</div>
+						> Added <span class="keywords">visibility(value, state)</span><br>
+						<div class="comment_in_list_blocks">
+							value: entity, layer or body<br>
+							state: true/false boolean. Default is false.<br>
+							Return:<br>
+							&nbsp;&nbsp;state ? (value.visible = true unless value.visible?) : (value.visible = false if value.visible?)
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@entity_1 = findEntityByIndex(0)<br>
+							&nbsp;&nbsp;@entity_2 = findEntityById(103)<br>
+							&nbsp;&nbsp;@entity_3 = findGroupByName("sphere")<br>
+							<br>
+							&nbsp;&nbsp;@layer_1 = findLayer(1)<br>
+							&nbsp;&nbsp;@layer_2 = findLayer("Physics joints")<br>
+							<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							&nbsp;&nbsp;@body_2 = findBody(group_entity)<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;state = true if key('v') == 1<br>
+							<br>
+							&nbsp;&nbsp;visibility(@entity_1, state)<br>
+							&nbsp;&nbsp;visibility(@layer_1, state)<br>
+							&nbsp;&nbsp;visibility(@body_1, state)<br>
+							<br>
+							OR<br>
+							<br>
+							&nbsp;&nbsp;@state = true if key('v') == 1<br>
+							&nbsp;&nbsp;@state = false if key('n') == 1<br>
+							<br>
+							&nbsp;&nbsp;visibility(@entity_1, @state)<br>
+							&nbsp;&nbsp;visibility(@layer_1, @state)<br>
+							&nbsp;&nbsp;visibility(@body_1, @state)<br>
+							}
+						</div></div>
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.9   ================================== -->
+
+					<span class="versionTitles">3.6.9 > December 7, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> Fixed the Settings dialog html and javascript file.<br>
+						> Added security alert to getMouseAxes, setSphereAxes, getEntity, getLayer, visibleEntity, visibleLayer commands.<br>
+						> Improved the script editor panel.<br>
+						<div class="comment_in_list_blocks">
+							Copy-paste function is working.<br>
+							New themes: SP Light and SP Dark. The SketchyPhysics keywords is yellow.
+						</div>
+						<img src="http://5mp.eu/fajlok2/sp3/6.9_www.5mp.eu_.png" alt="" />
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.8   ================================== -->
+
+					<span class="versionTitles">3.6.8 > November 26, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Compatible with SketchUp 2016 32-bit.</b><br>
+						<div class="comment_in_list_blocks">
+							New hand icon in simulation because old does not working.<br>
+							Fixed the Prims and Joints toolbar check function.<br>
+							New style and icons.<br>
+						</div>
+						> Fixed model version checking.<br>
+						<div class="comment_in_list_blocks">
+							Now if the model SketchyPhysics version is subsequent like the installed SP, then
+							appears a window from which be downloaded the latest version.<br>
+						</div>
+						> Fixed Ace editor theme changer.
+						<div class="comment_in_list_blocks">
+							From now remember onto selected theme.<br>
+						</div>
+						> Fixed Menu in Settings dialog.<br>
+						<div class="comment_in_list_blocks">
+							From now remember onto selected menu.<br>
+						</div>
+						> Settings dialog is closed during the simulation.<br>
+						> The last selected group will be memorized before start the simulation. Re-selected if stopped the simulation.<br>
+						> Added Joints hide checkbox to Inspector.
+						<div class="comment_in_list_blocks">
+							This hide all Joints during the simulation.
+						</div>
+						> Added Controller Panel hide checkbox to Inspector.
+						<div class="comment_in_list_blocks">
+							This hide the Joints Controller Panel during the simulation.
+						</div>
+						> Added 'Purge Unused' button to Inspector.
+						<div class="comment_in_list_blocks">
+							This cleans the model.(materials, styles, definitions, layers)
+						</div>
+						> Added 'Delete Guides' button to Inspector.
+						<div class="comment_in_list_blocks">
+							This delete all guide points and guidelines.<br>
+							When you're done with the model, you can delete all guides point from joints.<br>
+							If there are many joints in the model, this improves the performance!
+						</div>
+						> Added 'Clear Ruby Console' button to script editor panel. (SketchUp 2014+)<br>
+						> Added <span class="keywords">visibleLayer(value, state)</span> command.<br>
+						<div class="comment_in_list_blocks">
+							value = index- or name of layer<br>
+							state = true/false boolean<br>
+							Source:<br>
+							&nbsp;&nbsp;layer = Sketchup.active_model.layers[value]<br>
+							&nbsp;&nbsp;state ? (layer.visible = true unless layer.visible?) : (layer.visible = false if layer.visible?)
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onUpdate {<br>
+							&nbsp;&nbsp;vis_layer_bool = true if key('v') == 1<br>
+							&nbsp;&nbsp;visibleLayer("Physics joints", vis_layer_bool)<br>
+							<br>
+							&nbsp;&nbsp;OR<br>
+							<br>
+							&nbsp;&nbsp;@vis_layer_bool = true if key('v') == 1<br>
+							&nbsp;&nbsp;@vis_layer_bool = false if key('n') == 1<br>
+							&nbsp;&nbsp;visibleLayer("Physics joints", @vis_layer_bool)<br>
+							}
+						</div></div>
+						> Added <span class="keywords">visibleEntity(index, state)</span><br>
+						> Added <span class="keywords">visibleBody(body, state)</span><br>
+						<div class="comment_in_list_blocks">
+							body = physics group/component<br>
+							state = true/false boolean<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;vis_body_bool = true if key('v') == 1<br>
+							&nbsp;&nbsp;visibleBody(@body, vis_body_bool)<br>
+							<br>
+							&nbsp;&nbsp;OR<br>
+							<br>
+							&nbsp;&nbsp;@vis_body_bool = true if key('v') == 1<br>
+							&nbsp;&nbsp;@vis_body_bool = false if key('n') == 1<br>
+							&nbsp;&nbsp;visibleBody(@body, @vis_body_bool)<br>
+							}
+						</div></div>
+						> Added <span class="keywords">resetSimulation</span> alias to <span class="keywords">physicsReset</span>; and <span class="keywords">startSimulation</span> to <span class="keywords">physicsStart</span> v 3.6.4.<br>
+						> Fixed the newPoint and newVector command.<br>
+						<img src="http://5mp.eu/fajlok2/sp3/6.8_www.5mp.eu_.png" alt="" />
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.7   ================================== -->
+
+					<span class="versionTitles">3.6.7 > November 2, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> Added new <b class="moreInfoButton"><a href="https://ace.c9.io" target="_blank"><span>Ace Code Editor.</span></a></b>
+						<div class="comment_in_list_blocks">
+							The copy and paste function is not working!<br>
+							Hold the Ctrl/Command and drag the selected text to place.<br>
+							Copy and paste from external editor in the Inspector script box.
+						</div>
+						<img src="http://5mp.eu/fajlok2/sp3/6.7_www.5mp.eu_.png" alt="" />
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.6   ================================== -->
+
+					<span class="versionTitles">3.6.6 > November 2, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Added new sound player command with stereo and multi functions:</b><br>
+						<div style="margin-left: 40px">
+							SP3xCommonContext.<span class="keywords">playSoundPro</span>(
+							<table style="margin-left: 20px">
+								<tr><td width="110px">
+									channel,<br>
+									"sound",<br>
+									position,<br>
+									volume,<br>
+									play,<br>
+									stop,<br>
+									ch_reset,<br>
+									repeat,<br>
+									time
+								</td><td style="width: 100px; font-style: italic; color: #888">
+									Required!<br>
+									Required!<br>
+									Required!<br>
+									Optional<br>
+									Optional<br>
+									Optional<br>
+									Optional<br>
+									Optional<br>
+									Optional
+								</td>
+								</td><td style="width: 120px; font-style: italic; color: #888">
+									<br>
+									<br>
+									<br>
+									Default = 5<br>
+									Default = false<br>
+									Default = false<br>
+									Default = false<br>
+									Default = 0<br>
+									Default = -1
+								</td>
+								</td><td style="font-style: italic; color: #888">
+									@channel_1 = playSoundPro(@channel_1, .....)<br>
+									Sound name.<br>
+									3D point or array.<br>
+									Sound volume.<br>
+									Play sound: true/false boolean.<br>
+									Stop sound and reset channel: true/false boolean.<br>
+									Reset channel: true/false boolean.<br>
+									Repeat sound.<br>
+									Playback length in milliseconds.
+								</td></tr>
+							</table>
+							)<br>
+							<br>
+							<span style="font-style: italic; color: #888">Note: The channel is automatic resets, if non playing the sound.</span>
+						</div>
+						<br>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							#============================================================<br>
+							# Version 1:&nbsp;&nbsp;Background music<br>
+							#============================================================<br>
+							onUpdate {<br>
+							<br>
+							&nbsp;&nbsp;@channel_1 = playSoundPro(<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@channel_1,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;"background_music",<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;camera.eye,&nbsp;&nbsp;# Sound sources is camera centre point.<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;5,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;frame == 1,&nbsp;&nbsp;# Play music if simulation frame is 1.<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;false,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# No stop.<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;false,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# No channel reset.<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;999&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Repeat.<br>
+							&nbsp;&nbsp;)<br>
+							}
+							<br>
+							<br>
+							#============================================================<br>
+							# Version 2:&nbsp;&nbsp;Car horn.<br>
+							#============================================================<br>
+							onStart {<br>
+							&nbsp;&nbsp;@car = findBody("car")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;if key('v') == 1<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;play = true if @channel_horn == nil<br>
+							&nbsp;&nbsp;else<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;stop = true<br>
+							&nbsp;&nbsp;end<br>
+							<br>
+							&nbsp;&nbsp;@channel_horn = playSoundPro(<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@channel_horn,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;"car_horn",<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@car.getCenter,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;4,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;play,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;stop<br>
+							&nbsp;&nbsp;)<br>
+							}<br>
+							<br>
+							#============================================================<br>
+							# Version 3:&nbsp;&nbsp;Play sound one by one.<br>
+							#============================================================<br>
+							onStart {<br>
+							&nbsp;&nbsp;@body = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;play = true if key('v') == 1 and @channel_3 == nil<br>
+							<br>
+							&nbsp;&nbsp;@channel_3 = playSoundPro(<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@channel_3,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;"sound",<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@body.getCenter,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;4,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;play<br>
+							&nbsp;&nbsp;)<br>
+							}<br>
+							<br>
+							#============================================================<br>
+							# Version 4:&nbsp;&nbsp;Play sound with each key press.<br>
+							#============================================================<br>
+							onStart {<br>
+							&nbsp;&nbsp;@body = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;if key('v') == 1<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;play = true if @asdda == nil<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@asdda = true<br>
+							&nbsp;&nbsp;else<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@asdda = nil<br>
+							&nbsp;&nbsp;end<br>
+							<br>
+							&nbsp;&nbsp;@channel_4 = playSoundPro(<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@channel_4,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;"sound",<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@body.getCenter,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;5,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;play<br>
+							&nbsp;&nbsp;)<br>
+							}<br>
+							<br>
+							#============================================================<br>
+							# Version 5:&nbsp;&nbsp;Gun shot.<br>
+							#============================================================<br>
+							onStart {<br>
+							&nbsp;&nbsp;@gun = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;play = true if key('v') == 1 and every(7)<br>
+							<br>
+							&nbsp;&nbsp;@channel_5 = playSoundPro(<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@channel_5,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;"gunShot_4",<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;@gun.getCenter,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;5,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;play,<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;false,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# No stop<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;true&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Channel is nil, if 'play' no true.<br>
+							&nbsp;&nbsp;)<br>
+							}<br>
+							<br>
+							Note: If you use more gun shots, you can use this:<br>
+							every(7,0) for 1 gun<br>
+							every(7,1) for 2 gun<br>
+							every(7,2) for 3 gun<br>
+							etc ...<br>
+							The second number should be less than the first!
+						</div></div>
+						> Added playback sound detector.<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">playing?(channel)</span><br>
+							Returns: true/false boolean.
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onUpdate {<br>
+							&nbsp;&nbsp;@channel_1 = playSound("activation_1") if key('v') == 1 and @channel == nil<br>
+							<br>
+							&nbsp;&nbsp;# This resets the sound channel. Required to setSoundPosition/2/ !<br>
+							&nbsp;&nbsp;(@channel_1 = nil unless playing?(@channel_1)) if @channel_1<br>
+							<br>
+							&nbsp;&nbsp;(@channel_85 = nil unless playing?(@channel_85)) if @channel_85<br>
+							<br>
+							&nbsp;&nbsp;# etc....<br>
+							<br>
+							&nbsp;&nbsp;# Turn it On/Off the joints with sound.<br>
+							&nbsp;&nbsp;if @channel_1<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;playing?(@channel_1) ? setVar('variable',1) : setVar('variable',0)<br>
+							&nbsp;&nbsp;end<br>
+							}
+						</div></div>
+						> Added set maximum channels in numbers. Default is 8, max is 100.<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">maxChannels(numeric)</span>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;maxChannels(30)<br>
+							}
+						</div></div>
+						> Added frame counter with allocation. Count default is 0.<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">every(allocation, count)</span><br>
+							Returns: true/false boolean.<br>
+							Source:<br>
+							&nbsp;&nbsp;frame % allocation == count
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onUpdate {<br>
+							&nbsp;&nbsp;@channel_1 = playSound("activation_1") if key('v') == 1 and every(30)<br>
+							&nbsp;&nbsp;@channel_2 = playSound("activation_2") if key('n') == 1 and every(30,10)<br>
+							}
+						</div></div>
+						<img src="http://5mp.eu/fajlok2/sp3/6.6_www.5mp.eu_.png" alt="" />
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.5   ================================== -->
+
+					<span class="versionTitles">3.6.5 > October 24, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Fixed SketchUp 2013 start simulation crash.</b><br>
+						> Fixed setSphereAxes command.<br>
+						> Improved transition command.<br>
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.4   ================================== -->
+
+					<span class="versionTitles">3.6.4 > October 22, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Added follower camera command to vehicles.</b><br>
+						<div style="margin-left: 40px">
+							SP3xBodyContext.<span class="keywords">followerCamera</span>(
+							<table style="margin-left: 20px">
+								<tr><td width="100px">
+									distance,<br>
+									speed,<br>
+									front height,<br>
+									rear height,<br>
+									field of view
+								</td><td style="width: 100px; font-style: italic; color: #888">
+									Required!<br>
+									Optional<br>
+									Optional<br>
+									Optional<br>
+									Optional
+								</td>
+								</td><td style="font-style: italic; color: #888">
+									<br>
+									Default = 20<br>
+									Default = 10<br>
+									Default = 50<br>
+									Default = 40
+								</td></tr>
+							</table>
+							)<br>
+							<br>
+							<div class="moreInfoButton"><a href="https://www.youtube.com/watch?v=A_059E3NuHE" target="_blank"><span>Video on YouTube</span></a></div>
+							<br>
+						</div>
+						> Added new menu item ("Camera Follow and Track") into right click context menu during simulation.<br>
+						> Added origin point modifier (setBodyOrigin) to multiple shapes are selected.<br>
+						> Added physicsReset command to stop and reset physics simulation.<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">physicsReset</span><br>
+							Returns: MSketchyPhysics3::SketchyPhysicsClient.safePhysicsReset
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onUpdate {<br>
+							&nbsp;&nbsp;physicsReset if key('v') == 1<br>
+							}
+						</div></div>
+						> Added physicsStart command to start physics simulation.<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">physicsStart</span><br>
+							Returns: MSketchyPhysics3::SketchyPhysicsClient.physicsStart
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onUpdate {<br>
+							&nbsp;&nbsp;if key('v') == 1<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;timer = UI.start_timer(0.2, false) {<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UI.stop_timer(timer)<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;physicsStart<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;physicsReset<br>
+							&nbsp;&nbsp;end<br>
+							}
+						</div></div>
+						> Added group/component finder by name to body commands.<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">findBody(value)</span><br>
+							value: name of group/component OR entity<br>
+							Returns: @simulation.findBody(value)
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@entity_1 = getEntity(1)<br>
+							&nbsp;&nbsp;@body_1 = findBody(@entity_1)<br>
+							OR<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;@body_1.setVelocity([0,1,0])<br>
+							}
+						</div></div>
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.3   ================================== -->
+
+					<span class="versionTitles">3.6.3 > October 20, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Sounds dialog is integrated into Settings dialog.</b><br>
+						> <b>Added for shapes body origin changer command. This changes the origin point to body center point.<br>
+						&nbsp;&nbsp;&nbsp;Only in this way will be correct the friction.</b><br>
+						> Fixed the Joint-Properties and connection tool.rb.<br>
+						<div class="comment_in_list_blocks">
+							Connect joint to body: Hold the left Ctrl, click the joint then click the body.<br>
+							Disconnect: Hold the left Shift, no matter what the order. <->
+						</div>
+						> Fixed the <span class="keywords">getFps</span> command.<br>
+						> Fixed the <span class="keywords">setSphereAxes</span> command.<br>
+						> Added update checker in "Extensions -> SketchyPhysics -> Check the new version"<br>
+						> Added Ruby Console cleaner command into sp_tool.rb.<br>
+						<div class="comment_in_list_blocks">
+							Returns: SKETCHUP_CONSOLE.clear
+						</div>
+						<img src="http://5mp.eu/fajlok2/sp3/6.3_www.5mp.eu_.png" alt="" />
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.2   ================================== -->
+
+					<span class="versionTitles">3.6.2 > October 14, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Added hide Joint Controller Panel command:</b><br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">hiddenControllerPanel</span><br>
+							(The getMouseAxes command automatically hides the controller panel.)
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;hiddenControllerPanel<br>
+							}
+						</div></div>
+						> Fixed the controller_commands.rb.<br>
+						> Fixed the physicsStart command in sp_tool.rb. Now open the Joint Controller Panel.<br>
+						> Added oscillator command:<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">oscillator(num)</span><br>
+							(num == speed)
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							&nbsp;&nbsp;@body_1.static = true<br>
+							&nbsp;&nbsp;@body_1.nocollision = true<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;up = 50 + oscillator(20)<br>
+							&nbsp;&nbsp;@body_1.setTransformation([0, 0, up])<br>
+							<br>
+							&nbsp;&nbsp;setVar("servo", oscillator(20))<br>
+							<br>
+							&nbsp;&nbsp;#Joints Controller: oscillator(20)<br>
+							}
+						</div></div>
+					</div>
+					<br>
+
+
+
+					<!-- =====================   3.6.1   ================================== -->
+
+					<span class="versionTitles">3.6.1 > October 6, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>Fixed the webdialogs. Now font sizing is automatic with webdialog width. The dialog windows is freely scalable !</b><br>
+						> <b>Integrated 61 wav sound files in sound folder.</b><br>
+						> Removed the GamePlay button.<br>
+						> Added Windows detector:<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">os_windows?</span><br>
+							Returns (RUBY_PLATFORM =~ /mswin|mingw/i) ? true : false<br>
+						</div>
+						<img src="http://5mp.eu/fajlok2/sp3/6.1_www.5mp.eu_.png" alt="" />
+					</div>
+					<br>
+
+
+
+
+					<!-- =====================   3.6.0   ================================== -->
+
+					<span class="versionTitles">3.6.0 > July 4, 2015</span><br>
+					<br>
+					<div class="list_blocks">
+						> <b>New style, renewed the webdialogs, toolbar icons and Joints.</b><br>
+						> <b>Added an option to scale joints:</b><br>
+						<div class="comment_in_list_blocks">
+							(Menu)Plugins->SketchyPhysics->Edit Joint Scale or Joints toolbar (created by Anton Synytsia)<br>
+						</div>
+						> Added new GamePlay button. This disable the "Joint Controller Panel" hides the axes of SketchUp and SketchUp window puts into the background. Reset simulation with ESC button.<br>
+						> Added mouse controller. Only for Windows and can be used only once in Script-box!:<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">getMouseAxes</span><br>
+							Returns: [x,y] Array<Numeric><br>
+						</div>
+						<div class="moreInfoButton" style="margin-left: 40px"><a href="https://www.youtube.com/watch?v=oIZAh5mtGEE" target="_blank"><span>Video on YouTube</span></a></div>
+						<br>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onUpdate {<br>
+							&nbsp;&nbsp;mouse = getMouseAxes<br>
+							<br>
+							&nbsp;&nbsp;setVar("motor", mouse.x)<br>
+							<br>
+							&nbsp;&nbsp;head_axes = setSphereAxes(mouse.x, mouse.y)<br>
+							}
+						</div></div>
+						> Added head move function for fps type games. (Used only once!):<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">setSphereAxes(left-right, up-down)</span><br>
+							Returns: [x,y] Array<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							&nbsp;&nbsp;@body_1.static = true<br>
+							&nbsp;&nbsp;@body_1.nocollision = true<br>
+							&nbsp;&nbsp;@body_2 = findBody("box")<br>
+							&nbsp;&nbsp;@body_2.static = true<br>
+							&nbsp;&nbsp;@body_2.nocollision = true<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;head_axes = setSphereAxes(key('left')-key('right'), key('up')-key('down'))<br>
+							&nbsp;&nbsp;@body_1.setTransformation([0,0,50], head_axes.x, head_axes.y, head_axes.z)<br>
+							&nbsp;&nbsp;@body_2.setTransformation([40,0,50], head_axes.x, head_axes.y, head_axes.z)<br>
+							}
+						</div></div>
+						> Added body multi transformation:<br>
+						<div style="margin-left: 40px">
+							SP3xBodyContext.<span class="keywords">setTransformation</span>(
+							<table style="margin-left: 20px">
+								<tr><td width="250px">
+									point, Xvector, Yvector, Zvector,<br>
+									rotation degrees, vector, point,<br>
+									X scale, Y scale, Z scale
+								</td><td style="width: 230px; font-style: italic; color: #888">
+									Required!, Opt., Opt., Opt.,<br>
+									Optional, Optional, Optional,<br>
+									Optional, Optional, Optional
+								</td>
+								</td><td style="font-style: italic; color: #888">
+									Default = nil, [1,0,0], [0,1,0], [0,0,1],<br>
+									Default = 0, [0,0,1], [0,0,0],<br>
+									Default = 1, 1, 1
+								</td></tr>
+							</table>
+							)<br>
+							<br>
+						<div class="moreInfoButton"><a href="https://www.youtube.com/watch?v=Uxv7pFlc5Ss" target="_blank"><span>Video on YouTube</span></a></div>
+						</div><br>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							&nbsp;&nbsp;@body_1.static = true<br>
+							&nbsp;&nbsp;@body_1.nocollision = true<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;@body_1.setTransformation(<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;newPoint(0,0,50), newVector(1,0,0), newVector(0,1,0), newVector(0,0,1),<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;90, newVector(0,0,1), newPoint(0,0,0),<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;1, 1, 1<br>
+							&nbsp;&nbsp;)<br>
+							}
+						</div></div>
+						> Added transition. Array logarithm only; Number logarithm or linear:<br>
+						<div style="margin-left: 40px">
+							SP3xCommonContext.<span class="keywords">transition</span>(
+							<table style="margin-left: 20px">
+								<tr><td width="100px">
+									new,<br>
+									current,<br>
+									speed,<br>
+									linear
+								</td><td style="width: 100px; font-style: italic; color: #888">
+									Required!<br>
+									Required!<br>
+									Optional<br>
+									Optional
+								</td>
+								</td><td style="font-style: italic; color: #888">
+									<br>
+									<br>
+									Default = 50<br>
+									Default = false
+								</td></tr>
+							</table>
+							)<br>
+						</div><br>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@new = @current = [0,0,0]<br>
+							&nbsp;&nbsp;@newNum = @currentNum = 0<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;@new = [45, -21, 523] if key('v') == 1<br>
+							&nbsp;&nbsp;@new = [0, 57, -311] if key('n') == 1<br>
+							<br>
+							&nbsp;&nbsp;@current = transition(@new, @current, 10)<br>
+							&nbsp;&nbsp;# Now the @current is x,y,z array.<br>
+							<br>
+							&nbsp;&nbsp;@newNum = 185 if key('v') == 1<br>
+							&nbsp;&nbsp;@newNum = -21 if key('n') == 1<br>
+							<br>
+							&nbsp;&nbsp;@currentNum = transition(@newNum, @currentNum, 10, true)<br>
+							&nbsp;&nbsp;# Now the @currentNum is number.<br>
+							}
+						</div></div>
+						> Added Frames Per Second getter:<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">getFps</span><br>
+							Returns: Numeric<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onUpdate {<br>
+							&nbsp;&nbsp;getEntity(1).text = getFps.to_s<br>
+							}
+						</div></div>
+						> Added body absolute center point getter:<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">getCenter</span><br>
+							Returns: 3D point<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;point = @body_1.getCenter<br>
+							}
+						</div></div>
+						> Added body origin point getter:<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">getOrigin</span><br>
+							Returns: 3D point<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;point = @body_1.getOrigin<br>
+							}
+						</div></div>
+						> Added body axes getter:<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">getAxes</span><br>
+							Returns: [x,y,z] Array<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;axes = @body_1.getAxes<br>
+							}
+						</div></div>
+						> Added entities getter:<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">getEntity(index)</span><br>
+							Returns: Sketchup.active_model.entities[index]<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@entity_1 = getEntity(1)<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;@entity_1.material = "red"<br>
+							}
+						</div></div>
+						> Added layer getter:<br>
+						<div class="comment_in_list_blocks">
+							SP3xCommonContext.<span class="keywords">getLayer(value)</span><br>
+							value: name- or index of layer<br>
+							Returns: Sketchup.active_model.layers[value]<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@layer_1 = getLayer(1)<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;@layer_1.visible = false<br>
+							}
+						</div></div>
+						> Added body hide or visible command:<br>
+						<div class="comment_in_list_blocks">
+							SP3xBodyContext.<span class="keywords">visible=(state)</span><br>
+							Returns: body.group.visible=true/false<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;axes = @body_1.visible = false<br>
+							}
+						</div></div>
+						> Added SP3xBodyContext.<span class="keywords">conversion=(transformations * transformations)</span><br>
+						<div class="comment_in_list_blocks">
+							Returns: self.group.transformation=()<br>
+						</div>
+						<div class="margin_in_list_blocks"><div class="example_script">
+							onStart {<br>
+							&nbsp;&nbsp;@body_1 = findBody("sphere")<br>
+							&nbsp;&nbsp;@body_1.static = true<br>
+							&nbsp;&nbsp;@body_1.nocollision = true<br>
+							}<br>
+							<br>
+							onUpdate {<br>
+							&nbsp;&nbsp;tra_1 = transformation_R(30, newVector(0,0,1))<br>
+							&nbsp;&nbsp;tra_2 = transformation_R(60, newVector(1,0,0))<br>
+							&nbsp;&nbsp;@body_1.conversion=(tra_1 * tra_2)<br>
+							}
+						</div></div>
+						> Added SP3xBodyContext.<span class="keywords">transformation_N(position, x, y, z)</span><br>
+						<div class="comment_in_list_blocks">
+							Returns: Geom::Transformation.new<br>
+						</div>
+						> Added SP3xBodyContext.<span class="keywords">transformation_R(degrees, vector, point)</span><br>
+						<div class="comment_in_list_blocks">
+							Returns: Geom::Transformation.rotation<br>
+						</div>
+						> Added SP3xBodyContext.<span class="keywords">transformation_S(x, y, z)</span><br>
+						<div class="comment_in_list_blocks">
+							Returns: Geom::Transformation.scaling<br>
+						</div>
+						> Added SP3xCommonContext.<span class="keywords">newPoint(x, y, z)</span><br>
+						<div class="comment_in_list_blocks">
+							Returns: Geom::Point3d.new<br>
+						</div>
+						> Added SP3xCommonContext.<span class="keywords">newVector(x, y, z)</span><br>
+						<div class="comment_in_list_blocks">
+							Returns: Geom::Vector3d.new<br>
+						</div>
+						<img src="http://5mp.eu/fajlok2/sp3/6.0_www.5mp.eu_.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
